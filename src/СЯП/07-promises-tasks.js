@@ -27,16 +27,8 @@
  *      .catch((error) => console.log(error.message)) // 'Error: Wrong parameter is passed!
  *                                                    //  Ask her again.';
  */
-function willYouMarryMe(isPositiveAnswer) {
-  return new Promise((resolve, reject) => {
-    if (typeof isPositiveAnswer !== 'boolean') {
-      reject(new Error('Wrong parameter is passed! Ask her again.'));
-    } else if (isPositiveAnswer === true) {
-      resolve('Hooray!!! She said "Yes"!');
-    } else {
-      resolve('Oh no, she said "No".');
-    }
-  });
+function willYouMarryMe(/* isPositiveAnswer */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -54,8 +46,8 @@ function willYouMarryMe(isPositiveAnswer) {
  *    })
  *
  */
-function processAllPromises(array) {
-  return Promise.all(array);
+function processAllPromises(/* array */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -77,8 +69,8 @@ function processAllPromises(array) {
  *    })
  *
  */
-function getFastestPromise(array) {
-  return Promise.race(array);
+function getFastestPromise(/* array */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -98,40 +90,8 @@ function getFastestPromise(array) {
  *    });
  *
  */
-function chainPromises(array, action) {
-  return new Promise((resolve, reject) => {
-    const results = [];
-    let completed = 0;
-
-    array.forEach((promise, index) => {
-      promise
-        .then((resultValue) => { // РџРµСЂРµРёРјРµРЅРѕРІС‹РІР°РµРј РїР°СЂР°РјРµС‚СЂ
-          results[index] = resultValue;
-          completed += 1;
-          if (completed === array.length) {
-            const validResults = results.filter((item) => item !== undefined);
-            if (validResults.length === 0) {
-              reject(new Error('All promises rejected'));
-            } else {
-              const finalResult = validResults.reduce(action);
-              resolve(finalResult);
-            }
-          }
-        })
-        .catch(() => {
-          completed += 1;
-          if (completed === array.length) {
-            const validResults = results.filter((item) => item !== undefined);
-            if (validResults.length === 0) {
-              reject(new Error('All promises rejected'));
-            } else {
-              const finalResult = validResults.reduce(action);
-              resolve(finalResult);
-            }
-          }
-        });
-    });
-  });
+function chainPromises(/* array, action */) {
+  throw new Error('Not implemented');
 }
 
 module.exports = {
