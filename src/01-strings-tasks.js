@@ -27,14 +27,14 @@ function extractNameFromTemplate(value) {
 }
 
 /**
- * Returns a first char of the given string.
+ * Получение первого символа строки
  */
 function getFirstChar(value) {
   return value[0];
 }
 
 /**
- * Removes a leading and trailing whitespace characters from string.
+ * Удаление пробелов в начале и конце строки
  */
 function removeLeadingAndTrailingWhitespaces(value) {
   return value.trim();
